@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Registro de Alumnos</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid border="1" columns="2" >
+                <h:outputLabel value="Nombre" for="idNombre"/>
+                <h:inputText value="#{alumno.nombre}" id="idNombre" />
+                
+                <h:outputLabel value="Edad" for="edad"/>
+                <h:inputText value="#{alumno.edad}" id="edad" />
+                
+                <h:outputLabel value="Pais" for="pais"/>
+                <h:selectOneMenu value="#{alumno.pais}" id="pais" >
+                <f:selectItem itemValue="MX" itemLabel="Mexico"/>
+                <f:selectItem itemValue="EU" itemLabel="Estados Unidos"/>
+                <f:selectItem itemValue="Can" itemLabel="Canada"/>
+                </h:selectOneMenu>
+                
+                <h:outputLabel value="Genero" for="genero"/>
+                <h:selectOneRadio value="#{alumno.genero}" >
+                <f:selectItem itemValue="M" itemLabel="Masculino"/>
+                <f:selectItem itemValue="F" itemLabel="Femenino"/>
+                </h:selectOneRadio>
+                
+                <h:outputLabel value="Experiencia" for="experiencia"/>
+                <h:selectManyCheckbox value="#{alumno.tecnologia}" id="experiencia">
+                    <f:selectItem itemValue="java" itemLabel="java"/>
+                    <f:selectItem itemValue="C#" itemLabel="C#"/>
+                    <f:selectItem itemValue="Php" itemLabel="PHP"/>
+                </h:selectManyCheckbox>
+                
+                <h:outputLabel value="Cursos Disponibles" for="cursosDisponibles"/>
+                <h:selectManyListbox value="#{alumno.cursosSeleccionados}" id="cursosDisponibles">
+                    <f:selectItems value="#{alumno.listaCursos}" />
+                </h:selectManyListbox>
+                                      
+            </h:panelGrid>
+            
+            <h:commandButton value="Enviar" action="Registrar" />
+            
+        </h:form>
+    </h:body>
+</html>
+

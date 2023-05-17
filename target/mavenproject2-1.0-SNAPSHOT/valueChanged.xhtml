@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body>
+        <h:form id="form1">
+            <h:panelGrid columns="3" id="mailpass">
+                
+                <h:outputText value="Email" />
+                <h:inputText id="mail" value="#{usuarioLogin.correo}" required="true" 
+                             requiredMessage="El correo es requerido" />
+                <h:message for="mail" showDetail="true" style="color: red"/>
+
+
+                <h:outputText value="Contraseña"/>
+                <h:inputSecret id="pass" value="#{usuarioLogin.password}" required="true"
+                               requiredMessage="La contraseña es requerida" />                        
+                 <h:message for="pass" showDetail="true" style="color: red"/>
+               
+                <f:facet name="footer">
+                    <h:commandButton id="getDatos" value="Login" action="#{usuarioLogin.validUsuLogin()}"/>
+                </f:facet>
+
+            </h:panelGrid>
+        </h:form>
+
+        <h:form id="form2">
+            <h:outputText value="Ya te encuentras registrado?" />
+            <h:selectBooleanCheckbox valueChangeListener="#{usuarioLogin.habilitaMailPass}" onclick="submit();"/>
+
+        </h:form>
+
+    </h:body>
+</html>
+

@@ -1,0 +1,60 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h:panelGrid columns="3" id="formulario" >
+
+                <h:outputLabel value="Nombre" for="nombre" />
+                <h:inputText id="nombre" value="#{estudiante.nombre}" required="true"
+                             requiredMessage="El Nombre no puede ser null" >
+                    <f:validator validatorId="nombreValidador" />
+                </h:inputText>
+                <h:message for="nombre" showDetail="true" showSummary="false" style="color: red"/>
+
+                
+                <h:outputLabel value="Edad" for="edad" />
+                <h:inputText id="edad" value="#{estudiante.edad}" required="true" 
+                             requiredMessage="La edad no puede ser null"
+                             converterMessage="La edad debe ser numerica"
+                             validatorMessage="La edad permitida es de 18 a 60 años">
+                    <f:convertNumber />  <f:validateLength minimum="18" maximum="60" />
+                </h:inputText>
+                <h:message for="edad" showDetail="true" style="color: red"/>
+
+                <h:outputLabel value="Pais" for="pais" />
+                <h:selectOneMenu id="pais" value="#{estudiante.pais}" class="caja" >
+                    <f:selectItem itemValue="CDMX" itemLabel="Mexico"/>
+                    <f:selectItem itemValue="EU" itemLabel="Estados Unidos"/>
+                    <f:selectItem itemValue="Canada" itemLabel="Canada"/>
+                </h:selectOneMenu>
+                 <h:message for="pais" showDetail="true" style="color: red"/>
+
+                <h:outputLabel value="Genero" for="genero" />
+                <h:selectOneRadio id="genero" value="#{estudiante.genero}" required="true"
+                                  requiredMessage="el genero no puede ser null">
+                    <f:selectItem itemValue="M" itemLabel="M"/>
+                    <f:selectItem itemValue="F" itemLabel="F"/>
+                </h:selectOneRadio>
+                <h:message for="genero" showDetail="true" style="color: red"/>
+
+                <h:outputLabel value="Descripcion" for="descripcion" />
+                <h:inputText id="descripcion" value="#{estudiante.descripcion}" required="true" 
+                             requiredMessage="La descripcion no puede ser null" />
+                <h:message for="descripcion" showDetail="true" style="color: red"/>
+
+                <f:facet name="footer">
+                    <h:commandButton action="#{controllerMysqlAlumno.nuevoRegistro(estudiante)}" value="Registrar"/>
+                </f:facet>
+            </h:panelGrid>
+
+        </h:form>
+    </h:body>
+</html>
+

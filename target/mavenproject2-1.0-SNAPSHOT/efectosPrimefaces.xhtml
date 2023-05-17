@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <p:panelGrid columns="3" >
+                <p:panel header="EfectoClip" >
+                    <h:outputText value="mouseOver" />
+                    <p:effect type="clip" event="mouseover"/> 
+                </p:panel>
+                <p:panel header="EfectoDrop" >
+                    <h:outputText value="Daleclick" />
+                    <p:effect type="drop" event="click"/> 
+                </p:panel>
+                <p:panel header="EfectoFold" >
+                    <h:outputText value="Dobleclick" />
+                    <p:effect type="fold" event="dblclick"/> 
+                </p:panel>
+                <p:panel header="EfectoPuff" >
+                    <h:outputText value="Dobleclick" />
+                    <p:effect type="puff" event="dblclick"/> 
+                </p:panel>
+                <p:panel header="EfectoPulsate" >
+                    <h:outputText value="DarClick" />
+                    <p:effect type="pulsate" event="click"/> 
+                </p:panel>
+            </p:panelGrid>
+        </h:form>
+    </h:body>
+</html>
+

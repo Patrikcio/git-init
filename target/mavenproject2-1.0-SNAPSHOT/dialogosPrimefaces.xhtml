@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+            <p:commandButton id="getDialogo" value="Salir" onclick="PF('dialogo').show();"/>
+            <p:confirmDialog header="Salir del sistema" message="Estas seguro de salir ?" visible="false" widgetVar="dialogo" >
+                <p:commandButton id="getSi" value="Si" onclick="PF('dialogo').hide();" type="submit" actionListener=""/>
+                <p:commandButton id="getNo" value="No" onclick="PF('dialogo').hide();" type="button"/>
+            </p:confirmDialog>
+        </h:form>
+    </h:body>
+</html>
+

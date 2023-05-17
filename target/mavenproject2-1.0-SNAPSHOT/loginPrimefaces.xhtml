@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+        <h:outputStylesheet library="css" name="styles.css"/>
+    </h:head>
+    <h:body>
+        <h:form id="form">
+
+            <p:growl id="growl" showDetail="true" showSummary="true" sticky="true"/>
+
+            <p:panel header="Login Primefaces" >
+
+                <h:panelGrid columns="2" id="mailpass">
+
+                    <p:outputLabel for="correo"  value="Email" />
+                    <p:inputText id="correo" size="20" value="#{usuarioLogin.correo}" required="true" requiredMessage="El correo es requerido"/>
+                    <p:tooltip for="correo" value="Ingresa un correo valido" showEffect="blind" hideEffect="explode" />  
+
+                </h:panelGrid>
+
+                <h:panelGrid columns="2" id="psw">
+
+                    <p:outputLabel for="pssword" value="Contraseña"/>
+                    <p:password id="pssword" size="20" value="#{usuarioLogin.password}" required="true" requiredMessage="La contraseña es requerida" promptLabel="Ingresa  tu contraseña"
+                                feedback="true" weakLabel="debil" goodLabel="Buena" strongLabel="Segura" />
+                     <p:tooltip for="pssword" value="Ingresa un correo valido" showEffect="blind" hideEffect="explode" />
+                    
+                    <f:facet name="footer">
+                        <p:commandButton id="getDatos" value="Login" action="#{usuarioLogin.validUsuLogin()}" update="@form"/>
+                    </f:facet>
+
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
+    </h:body>
+</html>
+

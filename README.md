@@ -1,2 +1,2 @@
-# git-init
+# Curso-Primefaces
 Proyecto de prueba git
